@@ -1,3 +1,9 @@
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
