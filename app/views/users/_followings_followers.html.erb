@@ -1,0 +1,8 @@
+<li id="micropost-<%= fuser.id %>">
+  <%= link_to gravatar_for(fuser, size: 50), fuser %>
+  <span class="user"><%= link_to fuser.name, fuser %></span>
+  <span class="content"><%= fuser.comment %></span>
+  <span class="timestamp">
+    Signuped <%= time_ago_in_words(fuser.created_at) %> ago.
+  </span>
+</li>
