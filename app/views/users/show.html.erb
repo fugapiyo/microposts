@@ -1,4 +1,9 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
+
 </h1>
+  <p>Mail: <%= @user.email %></p>
+  <p>Place: <%= @user.place %></p>
+  <p>Comment: <%= @user.comment %></p>
+  <p><%= link_to "Edit profile", edit_user_path %></p>
