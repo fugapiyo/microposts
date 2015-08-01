@@ -8,10 +8,13 @@
       <p>Mail: <%= @user.email %></p>
       <p>Place: <%= @user.place %></p>
       <p>Comment: <%= @user.comment %></p>
-      <p><%= link_to "Edit profile", edit_user_path %>
+      <% if @user == current_user %>
+        <p><%= link_to "Edit profile", edit_user_path %></p>
+      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
