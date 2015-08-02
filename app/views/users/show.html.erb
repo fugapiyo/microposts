@@ -1,21 +1,48 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <p>Mail: <%= @user.email %></p>
-      <p>Place: <%= @user.place %></p>
-      <p>Comment: <%= @user.comment %></p>
-      <% if @user == current_user %>
-        <p><%= link_to "Edit profile", edit_user_path %></p>
-      <% end %>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>
+            <%= gravatar_for @user %>
+            <div><%= @user.name %></div>
+          </h1>
+          <h5>
+            <div>Posts: <%= link_to "#{@user.microposts.count}", user_path %></div>
+            <div>followings: <%= link_to "#{@user.following_users.count}", show_followings_user_path %></div>
+            <div>followers: <%= link_to "#{@user.followed_users.count}", show_followers_user_path %></div>
+          </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Mail: <%= @user.email %></p>
+          <p>Place: <%= @user.place %></p>
+          <p>Comment: <%= @user.comment %></p>
+          <% if @user == current_user %>
+            <p><%= link_to "Edit profile", edit_user_path %></p>
+          <% end %>
+        </div>
+      </div>
     </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
+    <% if @following_users %>
+      <h3>Followings (<%= @following_users.count %>)</h3>
+      <ol class="microposts">
+        <% @following_users.each do |fuser| %>
+          <%= render partial: 'followings_followers', locals: { fuser: fuser } %>
+        <% end %>
+      </ol>
+    <% elsif @followed_users %>
+      <h3>Followers (<%= @followed_users.count %>)</h3>
+      <ol class="microposts">
+        <% @followed_users.each do |fuser| %>
+          <%= render partial: 'followings_followers', locals: { fuser: fuser } %>
+        <% end %>
+      </ol>
+    <% elsif @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <% @microposts.each do |micropost| %>

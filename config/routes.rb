@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root to: 'static_pages#home'
-  get 'signup',  to: 'users#new'
+  get    'signup',  to: 'users#new'
+  get    'users/:id/following' => 'users#followings', as: 'show_followings_user'
+  get    'users/:id/followed' => 'users#followers', as: 'show_followers_user'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
