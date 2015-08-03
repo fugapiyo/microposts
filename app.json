@@ -8,7 +8,7 @@
       "description": "Twitter API Key(Consumer Key)"
     },
     "TWITTER_API_SECRET": {
-      "description": "Twitter API Secret(Consumer Secret)
+      "description": "Twitter API Secret(Consumer Secret)"
     }
   }
 }
