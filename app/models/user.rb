@@ -56,7 +56,8 @@ class User < ActiveRecord::Base
         email:    User.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
         comment: auth.extra.raw_info.description,
-        place: auth.extra.raw_info.location
+        place: auth.extra.raw_info.location,
+        image_url: auth.extra.raw_info.profile_image_url
       )
     end
 

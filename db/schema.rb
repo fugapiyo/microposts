@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802132319) do
+ActiveRecord::Schema.define(version: 20150803141536) do
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150802132319) do
     t.string   "uid"
     t.string   "reset_password_token"
     t.string   "reset_password_sent_at"
+    t.string   "image_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
