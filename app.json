@@ -2,5 +2,13 @@
   "name": "fugapiyo-microposts",
   "scripts": {
     "postdeploy": "bundle exec rake db:setup"
+  },
+  "env": {
+    "TWITTER_API_KEY": {
+      "description": "Twitter API Key(Consumer Key)",
+    },
+    "TWITTER_API_SECRET": {
+      "description": "Twitter API Secret(Consumer Secret)
+    }
   }
 }

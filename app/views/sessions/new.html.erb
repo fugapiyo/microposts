@@ -12,7 +12,10 @@
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
-
+    <hr>
+    <div align="center">or</div>
+    <hr>
+    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-primary btn-block" %>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>

@@ -42,7 +42,7 @@
           <%= render partial: 'followings_followers', locals: { fuser: fuser } %>
         <% end %>
       </ol>
-    <% elsif @user.microposts.any? %>
+    <% else %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <% @microposts.each do |micropost| %>

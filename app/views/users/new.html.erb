@@ -1,7 +1,10 @@
 <h1>Sign up</h1>
-
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-primary btn-block" %>
+    <hr>
+    <div align="center">or</div>
+    <hr>
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 

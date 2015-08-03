@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'static_pages#home'
+  root    to: 'static_pages#home'
   get    'signup',  to: 'users#new'
   get    'users/:id/following' => 'users#followings', as: 'show_followings_user'
   get    'users/:id/followed' => 'users#followers', as: 'show_followers_user'
@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :microposts
   resources :relationships, only: [:create, :destroy]
 
+  devise_for :users, only: [:omniauth_callbacks], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  
 end
